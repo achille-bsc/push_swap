@@ -6,7 +6,7 @@
 /*   By: ameduboi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:06:00 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/01/15 19:40:27 by ameduboi         ###   ########.fr       */
+/*   Updated: 2025/01/18 17:44:36 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 typedef struct s_list
 {
 	struct s_list	next;
-	void		*content;
-}		t_list;
+	int		i;
+}	t_list;
 
 #endif

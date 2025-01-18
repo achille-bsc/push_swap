@@ -1,42 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   push_swap_utils_rotate.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ameduboi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/06 18:29:40 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/01/15 19:46:20 by ameduboi         ###   ########.fr       */
+/*   Created: 2025/01/18 18:09:18 by ameduboi          #+#    #+#             */
+/*   Updated: 2025/01/18 20:30:22 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_list pile_a)
+void	ra(t_list *pile_a)
 {
-	t_list	temp;
+	t_list	*temp;
 
-	temp = pile_a;
-	pile_a = pile_a->next;
-	pile_a->next = temp;
-}
-
-void	sb(t_list pile_b)
-{
-	t_list	temp;
-
-	temp = pile_b;
-	pile_b = pile_b->next;
-	pile_b->next = temp;
-}
-
-void	ss(t_list pile_a, t_list pile_b)
-{
-	sa(pile_a);
-	sb(pile_b);
-}
-
-void	pa(t_list pile_a, t_list pile_b)
-{
+	temp = pile_a->next;
 	
+	int	temp;
+
+	temp = pile_a->i;
+	while (pile_a->next->i)
+		pile_a->i = pile_a->next->i;
+	pile_a->i = temp;
+}
+
+void	rb(t_list *pile_b)
+{
+	int	temp;
+
+	temp = pile_b->i;
+	while (pile_b->next->i)
+		pile_b->i = pile_b->next->i;
+	pile_b->i = temp;
+}
+
+void	rr(t_list *pile_a, t_list *pile_b)
+{
+	ra(pile_a);
+	rb(pile_b);
 }
