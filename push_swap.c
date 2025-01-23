@@ -6,7 +6,7 @@
 /*   By: ameduboi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:25:23 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/01/18 17:22:13 by ameduboi         ###   ########.fr       */
+/*   Updated: 2025/01/23 19:14:24 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	push_swap(char *a)
 	int		i;
 	int		j;
 
-	j = 0;
+	j = 0
 	i = 0;
 	b = "";
-	if (*b)
-		pb();
+
 }
+
 /*
 int a;
 t_list next;
@@ -37,6 +37,7 @@ pile_a->a = pile_a->next->a;
 pile_a->next->a = temp;
 pile_a = 42 43   24;
 */
+
 void	main(int argc, char **argv)
 {
 	int	i;
