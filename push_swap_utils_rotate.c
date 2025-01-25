@@ -6,7 +6,7 @@
 /*   By: ameduboi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 18:09:18 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/01/22 00:41:25 by ameduboi         ###   ########.fr       */
+/*   Updated: 2025/01/25 02:38:07 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,20 @@ void	ra(t_list *pile_a)
 {
 	t_list	*new;
 
-	new->i = pile_a;
-	ft_lstadd_back(&pile_a, new);
+	ft_lstadd_back(&pile_a, &pile_a);
+	pile_a = pile_a->next;
+	new = ft_lstlast(pile_a);
+	new->next = NULL;
 }
 
 void	rb(t_list *pile_b)
 {
 	t_list	*new;
 
-	new->i = pile_b;
-	ft_lstadd_back(&pile_b, new);
+	ft_lstadd_back(&pile_b, &pile_b);
+	pile_b = pile_b->next;
+	new = ft_lstlast(pile_b);
+	new->next = NULL;
 }
 
 void	rr(t_list *pile_a, t_list *pile_b)
