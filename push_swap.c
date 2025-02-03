@@ -6,12 +6,55 @@
 /*   By: ameduboi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:25:23 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/02/03 22:25:50 by ameduboi         ###   ########.fr       */
+/*   Updated: 2025/02/03 23:51:32 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	push(t_list *list_a, t_list *list_b)
+{
+	
+}
+
+int	main(int argc, t_list *list_a)
+{
+	t_list	*list_b;
+
+	list_b = NULL;
+	pb(list_a, list_b);
+	write(1, "pb\n", 3);
+	pb(list_a, list_b);
+	write(1, "pb\n", 3);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 void	sort(t_list *list_a)
 {
 	t_list	*list_b;
@@ -68,22 +111,6 @@ int	main(int argc, t_list *list_a)
 	three_rest(list_a);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
 void	push_swap(char *a)
 {
 	char	*b;
