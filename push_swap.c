@@ -6,7 +6,7 @@
 /*   By: ameduboi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:25:23 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/02/04 01:08:08 by ameduboi         ###   ########.fr       */
+/*   Updated: 2025/02/05 00:09:22 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,20 @@ void    three_rest(t_list *list_a)
 	}
 }
 
+void	final_sort(t_list *list_a, t_list *list_b)
+{
+	
+}
+
 int	main(int argc, t_list *list_a)
 {
 	t_list	*list_b;
 
 	list_b = ft_lstnew("");
 	start_list_b(list_a, list_b);
+	sort_list_b(list_a, list_b);
 	three_rest(list_a);
+	final_sort(list_a, list_b);
 }
 
 
