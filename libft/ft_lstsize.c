@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ameduboi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 23:49:23 by ameduboi          #+#    #+#             */
-/*   Updated: 2024/11/07 22:49:39 by ameduboi         ###   ########.fr       */
+/*   Created: 2025/01/21 19:07:57 by ameduboi          #+#    #+#             */
+/*   Updated: 2025/01/21 19:11:03 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../push_swap.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdint.h>
+int	ft_lstsize(t_pile *lst)
+{
+	int	i;
 
-int	ft_printf(const char *format, ...);
-int	ft_putnhex(unsigned long nbr, int m);
-int	ft_putnptr(uintptr_t ptr);
-int	ft_putnchar(char c);
-int	ft_putnstr(char *s);
-int	ft_putnnbr(int nbr);
-int	ft_putunsignednnbr(unsigned int nbr);
-
-#endif
+	i = 0;
+	while (lst->next)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
+}

@@ -10,22 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void    pa(t_list *pile_a, t_list *pile_b)
+void    pa(t_pile **pile_a, t_pile **pile_b)
 {
-	t_list	*temp;
+	t_pile	*temp;
 
-	temp = pile_b->next;
-	pile_b->next = pile_a;
-	pile_b = temp;
+	temp = (*pile_b)->next;
+	(*pile_b)->next = *pile_a;
+	*pile_b = temp;
 }
 
-void	pb(t_list *pile_a, t_list *pile_b)
+void	pb(t_pile **pile_a, t_pile **pile_b)
 {
-	t_list	*temp;
+	t_pile	*temp;
 
-	temp = pile_a->next;
-	pile_a->next = pile_b;
-	pile_a = temp;
+	temp = (*pile_a)->next;
+	(*pile_a)->next = *pile_b;
+	*pile_a = temp;
 }

@@ -6,13 +6,13 @@
 /*   By: ameduboi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:25:23 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/02/05 00:09:22 by ameduboi         ###   ########.fr       */
+/*   Updated: 2025/02/05 18:39:31 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	start_list_b(t_list *list_a, t_list *list_b)
+void	start_sort(t_pile *list_a, t_pile *list_b)
 {
 	pb(list_a, list_b);
 	write(1, "pb\n", 3);
@@ -25,15 +25,23 @@ void	start_list_b(t_list *list_a, t_list *list_b)
 	}
 }
 
-void	sort_list_b(t_list *list_a, t_list *list_b)
+void	sort_pile_b(t_pile *list_a, t_pile *list_b)
 {
+	t_pile	*temp_b;
+
+	temp_b = list_b;
 	while (ft_lstsize(list_a) >= 3)
 	{
-		
+		while (ft_lstsize(list_b))
+		{
+			while (list_b < temp_b->next && temp_b->next)
+				temp_b = temp_b->next;
+			
+		}
 	}
 }
 
-void    three_rest(t_list *list_a)
+void    three_rest(t_pile *list_a)
 {
 	if (list_a > list_a->next)
 	{
@@ -55,18 +63,36 @@ void    three_rest(t_list *list_a)
 	}
 }
 
-void	final_sort(t_list *list_a, t_list *list_b)
-{
+// void	final_sort(t_pile *list_a, t_pile *list_b)
+// {
 	
-}
+// }
 
-int	main(int argc, t_list *list_a)
+int	main(int argc, char **argv)
 {
-	t_list	*list_b;
+	t_pile	*list_a;
+	char	**tab;
+	t_pile	*list_b;
+	int	i;
 
-	list_b = ft_lstnew("");
-	start_list_b(list_a, list_b);
-	sort_list_b(list_a, list_b);
+	 i = 0;
+	if (argc == 2)
+	{
+		tab = ft_split(argv[1], " ");
+		while (tab[i])
+		{
+			if (ft_can_be_int(tab[i]) == 0)
+			{
+				free_all(tab);
+				exit(1);
+			}
+			i++;
+		}
+	}
+	list_a = NULL;
+	list_b = NULL;
+	start_pile_b(list_a, list_b);
+	sort_pile_b(list_a, list_b);
 	three_rest(list_a);
 	final_sort(list_a, list_b);
 }
@@ -98,9 +124,9 @@ int	main(int argc, t_list *list_a)
 
 
 /*
-void	sort(t_list *list_a)
+void	sort(t_pile *list_a)
 {
-	t_list	*list_b;
+	t_pile	*list_b;
 
 	list_b = NULL;
 	while (ft_lstsize(list_a) > 3)
@@ -131,7 +157,7 @@ void	sort(t_list *list_a)
 	}
 }
 
-void	three_rest(t_list *list_a)
+void	three_rest(t_pile *list_a)
 {
 	if (list_a > list_a->next)
 	{
@@ -153,7 +179,7 @@ void	three_rest(t_list *list_a)
 	}
 }
 
-int	main(int argc, t_list *list_a)
+int	main(int argc, t_pile *list_a)
 {
 	sort(list_a);
 	three_rest(list_a);

@@ -1,24 +1,32 @@
-NAME = push_swap.a
+NAME = push_swap
 
 CC = cc
 
 CFLAGS = -Wall -Werror -Wextra
 
-OBJ =	push_swap.o\
-	libft_bonus/ft_lstadd_back.o\
-	libft_bonus/ft_lstadd_front.o\
-	libft_bonus/ft_lstclear.o\
-	libft_bonus/ft_lstdelone.o\
-	libft_bonus/ft_lstlast.o\
-	libft_bonus/ft_lstsize.o\
-	libft_bonus/lstnew.o\
-	printf/ft_fonction.o\
-	printf/ft_fonctions.o\
-	printf/ft_printf.o\
-	utils/push_swap_utils_push.o\
-	utils/push_swap_utils_reverse_rotate.o\
-	utils/push_swap_utils_rotate.o\
-	utils/push_swap_utils_swap.o
+SRC =	push_swap.c\
+	libft/ft_lstadd_back.c\
+        libft/ft_lstadd_front.c\
+        libft/ft_lstclear.c\
+        libft/ft_lstdelone.c\
+        libft/ft_lstlast.c\
+        libft/ft_lstsize.c\
+	libft/ft_atoi.c\
+	libft/ft_isdigit.c\
+        libft/lstnew.c\
+	printf/ft_fonction.c\
+        printf/ft_fonctions.c\
+        printf/ft_printf.c\
+	utils/push_swap_utils_push.c\
+        utils/push_swap_utils_reverse_rotate.c\
+        utils/push_swap_utils_rotate.c\
+        utils/push_swap_utils_swap.c\
+	utils/ft_can_be_int.c
+
+OBJ =	${SRC:.c = .o}
+
+${NAME}: ${OBJ}
+	 ${CC} ${CFLAGS} ${OBJ} -o ${NAME}
 
 all : ${NAME}
 

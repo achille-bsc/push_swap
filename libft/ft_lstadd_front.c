@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ameduboi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 19:20:02 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/01/21 19:26:25 by ameduboi         ###   ########.fr       */
+/*   Created: 2025/01/21 19:02:26 by ameduboi          #+#    #+#             */
+/*   Updated: 2025/01/21 19:07:41 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_pile **lst, t_pile *new)
 {
-	while (lst->next)
-		lst = lst->next;
-	lst->next = new;
+	new->next = *lst;
+	*lst = new;
 }

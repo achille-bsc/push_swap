@@ -6,7 +6,7 @@
 /*   By: ameduboi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:06:00 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/01/29 19:36:27 by ameduboi         ###   ########.fr       */
+/*   Updated: 2025/02/05 19:49:50 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,46 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <stdarg.h>
+# include <stdint.h>
 
-typedef struct s_list
+typedef struct s_pile
 {
-	struct s_list	next;
 	int		data;
-}	t_list;
+	struct s_pile	*next;
+}	t_pile;
+
+void    pa(t_pile **pile_a, t_pile **pile_b);
+void	pb(t_pile **pile_a, t_pile **pile_b);
+void	rra(t_pile **pile_a, int a);
+void	rrb(t_pile **pile_b, int a);
+void	rrr(t_pile **pile_a, t_pile **pile_b);
+void	ra(t_pile **pile_a, int a);
+void	rb(t_pile **pile_b, int a);
+void	rr(t_pile **pile_a, t_pile **pile_b);
+void	sa(t_pile **pile_a, int a);
+void	sb(t_pile **pile_b, int a);
+void	ss(t_pile **pile_a, t_pile **pile_b);
+int	ft_can_be_int(const char *nptr);
+
+int	ft_printf(const char *format, ...);
+int	ft_putnhex(unsigned long nbr, int m);
+int	ft_putnptr(uintptr_t ptr);
+int	ft_putnchar(char c);
+int	ft_putnstr(char *s);
+int	ft_putnnbr(int nbr);
+int	ft_putunsignednnbr(unsigned int nbr);
+
+int		ft_atoi(const char *nptr);
+int		ft_isdigit(int c);
+char	**ft_split(char const *s, char c);
+char	**free_all(char **result);
+void	ft_lstadd_back(t_pile **lst, t_pile *new);
+void	ft_lstadd_front(t_pile **lst, t_pile *new);
+void	ft_lstclear(t_pile **lst, void (*del)(void *));
+void	ft_lstdelone(t_pile *lst, void (*del)(void *));
+t_pile	*ft_lstlast(t_pile *lst);
+int	ft_lstsize(t_pile *lst);
+t_pile	*ft_lstnew(void *content);
 
 #endif

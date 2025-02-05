@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstdelone(t_pile *lst, void (*del)(void *))
 {
-	(*del)(lst->content);
+	(*del)(lst->data);
 	free(lst);
 }

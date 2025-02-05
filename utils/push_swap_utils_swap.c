@@ -10,28 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	sa(t_list *pile_a)
+void	sa(t_pile **pile_a, int a)
 {
 	int	temp;
 
-	temp = pile_a->i;
-	pile_a->i = pile_a->next->i;
-	pile_a->nex->i = temp;
+	temp = (*pile_a)->data;
+	(*pile_a)->data = (*pile_a)->next->data;
+	(*pile_a)->next->data = temp;
+	if (a)
+		write(1, "sa\n", 3);
 }
 
-void	sb(t_list *pile_b)
+void	sb(t_pile **pile_b, int a)
 {
 	int     temp;
 
-	temp = pile_b->i;
-	pile_b->i = pile_b->next->i;
-	pile_b->next->i = temp;
+	temp = (*pile_b)->data;
+	(*pile_b)->data = (*pile_b)->next->data;
+	(*pile_b)->next->data = temp;
+	if (a)
+		write(1, "sb\n", 3);
 }
 
-void	ss(t_list *pile_a, t_list *pile_b)
+void	ss(t_pile **pile_a, t_pile **pile_b)
 {
-	sa(pile_a);
-	sb(pile_b);
+	sa(pile_a, 0);
+	sb(pile_b, 0);
+	write(1, "ss\n", 3);
 }

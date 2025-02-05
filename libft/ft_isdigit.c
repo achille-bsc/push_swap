@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ameduboi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 19:02:26 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/01/21 19:07:41 by ameduboi         ###   ########.fr       */
+/*   Created: 2024/10/15 16:38:18 by ameduboi          #+#    #+#             */
+/*   Updated: 2024/10/15 16:47:34 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	ft_isdigit(int c)
 {
-	new->next = *lst;
-	*lst = new;
+	if ('0' <= c && '9' >= c)
+		return (1);
+	return (0);
 }
+/*
+int	main(void)
+{
+	printf("%d", ft_isdigit('0'));
+}
+*/

@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ameduboi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 18:46:37 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/01/21 18:50:05 by ameduboi         ###   ########.fr       */
+/*   Created: 2025/01/21 19:31:44 by ameduboi          #+#    #+#             */
+/*   Updated: 2025/01/21 20:24:26 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "../push_swap.h"
 
-# include <stdlib.h>
-
-typedef struct		s_list
+void	ft_lstclear(t_pile **lst, void (*del)(void *))
 {
-	void		*content;
-	struct s_list	*next;
-}			t_list;
+	t_pile	*temp;
 
-#endif
+	while ((*lst)->next)
+	{
+		(*del)((*lst)->data);
+		temp = (*lst)->next;
+		free(*lst);
+		*lst = temp;
+	} lst = NULL;
+}

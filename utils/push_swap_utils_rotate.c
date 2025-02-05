@@ -10,30 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	ra(t_list *pile_a)
+void	ra(t_pile **pile_a, int a)
 {
-	t_list	*new;
+	t_pile	*new;
 
-	ft_lstadd_back(&pile_a, &pile_a);
-	pile_a = pile_a->next;
-	new = ft_lstlast(pile_a);
+	ft_lstadd_back(pile_a, *pile_a);
+	(*pile_a) = (*pile_a)->next;
+	new = ft_lstlast(*pile_a);
 	new->next = NULL;
+	if (a)
+		write(1, "ra\n", 3);
 }
 
-void	rb(t_list *pile_b)
+void	rb(t_pile **pile_b, int a)
 {
-	t_list	*new;
+	t_pile	*new;
 
-	ft_lstadd_back(&pile_b, &pile_b);
-	pile_b = pile_b->next;
-	new = ft_lstlast(pile_b);
+	ft_lstadd_back(pile_b, *pile_b);
+	(*pile_b) = (*pile_b)->next;
+	new = ft_lstlast(*pile_b);
 	new->next = NULL;
+	if (a)
+		write(1, "rb\n", 3);
 }
 
-void	rr(t_list *pile_a, t_list *pile_b)
+void	rr(t_pile **pile_a, t_pile **pile_b)
 {
-	ra(pile_a);
-	rb(pile_b);
+	ra(pile_a, 0);
+	rb(pile_b, 0);
+	write(1, "rr\n", 3);
 }

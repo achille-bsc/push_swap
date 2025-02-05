@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   lstnew.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ameduboi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 19:11:34 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/01/21 19:19:31 by ameduboi         ###   ########.fr       */
+/*   Created: 2025/01/21 18:44:35 by ameduboi          #+#    #+#             */
+/*   Updated: 2025/01/21 19:02:04 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
+t_pile	*ft_lstnew(void *content)
 {
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	  t_pile	*new;
+
+	  new = malloc(sizeof(t_pile *));
+	  new->data = content;
+	  new->next = NULL;
+	  return (new);
 }
