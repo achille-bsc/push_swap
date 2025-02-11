@@ -6,7 +6,7 @@
 /*   By: ameduboi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:06:00 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/02/05 19:49:50 by ameduboi         ###   ########.fr       */
+/*   Updated: 2025/02/11 03:55:23 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 typedef struct s_pile
 {
 	int		data;
+	unsigned int	index;
 	struct s_pile	*next;
 }	t_pile;
 

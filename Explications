@@ -1,0 +1,56 @@
+0  0  0  0  0
+16 8  4  2  1
+
+1010
+0110
+
+8 & 6 = 0
+
+
+
+(1011 0100 >> 4) & 1
+
+1011 0100 >> 0
+
+
+
+
+0101 1010 & 1 = 0
+
+Pour le nombre d'element dans A :
+	si l'element a comme premier binaire 0
+		pb
+	sinon
+		ra
+
+void	sort(t_pile *pile_a, t_pile *pile_b)
+{
+	int	i;
+	int	len_a;
+	int	len_b;
+	int	higher;
+	
+	i = 0;
+	len_a = 0;
+	len_b = 0;
+	higher = ft_lstsize(pile_a);
+	while (i < higher)
+	{
+		len_a = ft_lstsize(pile_a);
+		while (len_a)
+		{
+			if ((pile_a->data >> i) & 0)
+				pb(pile_a, pile_b);
+			else
+				ra(pile_a);
+			len_a--;
+		}
+		len_b = ft_lstsize(pile_b);
+		while (len_b)
+		{
+			pa(pile_a, pile_b);
+			len_b--;
+		}
+		i++;
+	}
+}
