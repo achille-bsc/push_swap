@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ameduboi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 19:31:44 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/01/21 20:24:26 by ameduboi         ###   ########.fr       */
+/*   Updated: 2025/02/11 22:36:23 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_lstclear(t_pile **lst, void (*del)(void *))
 
 	while ((*lst)->next)
 	{
-		(*del)((*lst)->data);
+		(*del)(((*lst)->data));
 		temp = (*lst)->next;
 		free(*lst);
 		*lst = temp;
