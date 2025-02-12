@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils_push.c                             :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/18 17:51:49 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/02/12 23:27:24 by abosc            ###   ########.fr       */
+/*   Created: 2025/02/12 22:45:06 by abosc             #+#    #+#             */
+/*   Updated: 2025/02/12 22:47:59 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	push(t_pile **pile_from, t_pile **pile_to)
+void	ft_putstr(char *s)
 {
-	t_pile	*tmp;
+	int	i;
 
-	if (!*pile_from)
-		return ;
-	tmp = (*pile_from)->next;
-	(*pile_from)->next = *pile_to;
-	*pile_to = *pile_from;
-	*pile_from = tmp;
-}
-
-void	pa(t_pile **pile_a, t_pile **pile_b)
-{
-	push(pile_b, pile_a);
-	ft_putstr("pa\n");
-}
-
-void	pb(t_pile **pile_a, t_pile **pile_b)
-{
-	push(pile_a, pile_b);
-	ft_putstr("pb\n");
+	i = 0;
+	while (s[i])
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
 }

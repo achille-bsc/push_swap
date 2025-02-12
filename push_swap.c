@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:25:23 by abosc             #+#    #+#             */
-/*   Updated: 2025/02/12 21:08:22 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/12 23:29:15 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,24 @@ void	sort(t_pile **pile_a, t_pile **pile_b)
 	len_b = 0;
 	while (++i < (int)(sizeof(int) * 8))
 	{
-		while (*pile_a)
+		len_a = ft_lstsize(*pile_a);
+		while (len_a)
 		{
-			printf("test1 %d\n", (*pile_a)->data);
-			printf("test1 %d\n", ft_lstsize(*pile_a));
-			// printf("test1 %d\n", (*pile_a)->next->data);
-			usleep(100000);
-			if (((*pile_a)->index >> i) & 0)
+			if (!((((*pile_a)->index) >> i) & 1))
 				pb(pile_a, pile_b);
 			else
-				ra(pile_a, 1);
+				ra(pile_a);
+			len_a--;
 		}
-		while (*pile_b)
+		len_b = ft_lstsize(*pile_b);
+		while (len_b)
 		{
-			printf("test4\n");
 			pa(pile_a, pile_b);
+			len_b--;
 		}
 	}
 }
+// RA PB RA RA PB
 
 void	indexing(t_pile **pile_a)
 {
@@ -54,7 +54,6 @@ void	indexing(t_pile **pile_a)
 	{
 		max = -2147483648;
 		temp = *pile_a;
-		ft_printf("print i: %d\n", i);
 		while (temp)
 		{
 			if (temp->data > max && temp->index == 0)
@@ -65,9 +64,6 @@ void	indexing(t_pile **pile_a)
 			temp = temp->next;
 		}
 		temp_max->index = i;
-		ft_printf("temp_max: %d\n", temp_max->index);
-		ft_printf("temp_max val: %d\n", temp_max->data);
-		ft_printf("max: %d\n", max);
 		i--;
 	}
 }
@@ -84,6 +80,20 @@ void	lst_print(t_pile **pile)
 		temp = temp->next;
 	}
 	ft_printf("%d", temp->data);
+	ft_printf("]\n");
+}
+void	lst_print_index(t_pile **pile)
+{
+	t_pile	*temp;
+
+	temp = (*pile);
+	ft_printf("[");
+	while (temp->next)
+	{
+		ft_printf("%d, ", temp->index);
+		temp = temp->next;
+	}
+	ft_printf("%d", temp->index);
 	ft_printf("]\n");
 }
 
@@ -121,6 +131,7 @@ int	main(void)
 	temp = pile_a;
 	indexing(&pile_a);
 	lst_print(&pile_a);
+	lst_print_index(&pile_a);
 	sort(&pile_a, &pile_b);
 	printf("Pile A après tri :\n");
 	temp = pile_a;

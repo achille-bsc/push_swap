@@ -6,39 +6,40 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 18:09:18 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/02/12 21:26:50 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/12 22:37:36 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ra(t_pile **pile_a, int a)
+void	rotate(t_pile **pile)
 {
-	t_pile	*new;
+	t_pile	*tmp;
+	t_pile	*last;
 
-	new = ft_lstlast(*pile_a);
-	ft_lstadd_back(pile_a, *pile_a);
-	(*pile_a) = (*pile_a)->next;
-	new->next = NULL;
-	if (a)
-		write(1, "ra\n", 3);
+	tmp = (*pile)->next;
+	last = (*pile);
+	while (last->next)
+		last = last->next;
+	last->next = (*pile);
+	(*pile)->next = NULL;
+	(*pile) = tmp;
 }
 
-void	rb(t_pile **pile_b, int a)
+void	ra(t_pile **pile_a)
 {
-	t_pile	*new;
-
-	ft_lstadd_back(pile_b, *pile_b);
-	(*pile_b) = (*pile_b)->next;
-	new = ft_lstlast(*pile_b);
-	new->next = NULL;
-	if (a)
-		write(1, "rb\n", 3);
+	rotate(pile_a);
+	ft_putstr("ra\n");
+}
+void	rb(t_pile **pile_b)
+{
+	rotate(pile_b);
+	ft_putstr("rb\n");
 }
 
-void	rr(t_pile **pile_a, t_pile **pile_b)
+void rr(t_pile **pile_a, t_pile **pile_b)
 {
-	ra(pile_a, 0);
-	rb(pile_b, 0);
-	write(1, "rr\n", 3);
+	rotate(pile_a);
+	rotate(pile_b);
+	ft_putstr("rr\n");
 }

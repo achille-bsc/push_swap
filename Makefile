@@ -5,21 +5,22 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
 SRC =	push_swap.c\
-	libft/ft_lstadd_back.c\
+		libft/ft_putstr.c\
+		libft/ft_lstadd_back.c\
         libft/ft_lstadd_front.c\
         libft/ft_lstlast.c\
         libft/ft_lstsize.c\
-	libft/ft_atoi.c\
-	libft/ft_isdigit.c\
+		libft/ft_atoi.c\
+		libft/ft_isdigit.c\
         libft/lstnew.c\
-	printf/ft_fonction.c\
+		printf/ft_fonction.c\
         printf/ft_fonctions.c\
         printf/ft_printf.c\
-	utils/push_swap_utils_push.c\
+		utils/push_swap_utils_push.c\
         utils/push_swap_utils_reverse_rotate.c\
         utils/push_swap_utils_rotate.c\
         utils/push_swap_utils_swap.c\
-	utils/ft_can_be_int.c
+		utils/ft_can_be_int.c
 
 OBJ =	${SRC:.c=.o}
 
