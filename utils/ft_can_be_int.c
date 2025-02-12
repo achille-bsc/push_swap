@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_can_be_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ameduboi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 21:05:47 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/02/05 18:06:32 by ameduboi         ###   ########.fr       */
+/*   Updated: 2025/02/12 06:09:03 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_can_be_int(const char *nptr)
 {
-	int	i;
+	int			i;
 	long long	result;
-	int	sign;
+	int			sign;
 
 	result = 0;
 	i = 0;

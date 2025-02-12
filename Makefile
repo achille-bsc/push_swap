@@ -7,8 +7,6 @@ CFLAGS = -Wall -Werror -Wextra
 SRC =	push_swap.c\
 	libft/ft_lstadd_back.c\
         libft/ft_lstadd_front.c\
-        libft/ft_lstclear.c\
-        libft/ft_lstdelone.c\
         libft/ft_lstlast.c\
         libft/ft_lstsize.c\
 	libft/ft_atoi.c\
@@ -23,7 +21,7 @@ SRC =	push_swap.c\
         utils/push_swap_utils_swap.c\
 	utils/ft_can_be_int.c
 
-OBJ =	${SRC:.c = .o}
+OBJ =	${SRC:.c=.o}
 
 ${NAME}: ${OBJ}
 	 ${CC} ${CFLAGS} ${OBJ} -o ${NAME}
@@ -37,3 +35,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+phony: all clean fclean re

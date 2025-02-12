@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ameduboi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 19:07:57 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/01/21 19:11:03 by ameduboi         ###   ########.fr       */
+/*   Updated: 2025/02/12 00:03:01 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_lstsize(t_pile *lst)
 	int	i;
 
 	i = 0;
-	while (lst->next)
+	while (lst)
 	{
 		lst = lst->next;
 		i++;

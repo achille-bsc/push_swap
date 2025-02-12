@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:25:23 by abosc             #+#    #+#             */
-/*   Updated: 2025/02/11 22:32:32 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/12 05:57:53 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,58 +21,72 @@ void	sort(t_pile **pile_a, t_pile **pile_b)
 	i = -1;
 	len_a = 0;
 	len_b = 0;
-	while (i++ < (int)(sizeof(int) * 8))
+	while (++i < (int)(sizeof(int) * 8))
 	{
-		len_a = ft_lstsize(*pile_a);
-		while (len_a)
+		while (*pile_a)
 		{
+			printf("test1 %d\n", (*pile_a)->data);
+			printf("test1 %d\n", ft_lstsize(*pile_a));
+			// printf("test1 %d\n", (*pile_a)->next->data);
+			usleep(100000);
 			if (((*pile_a)->index >> i) & 0)
 				pb(pile_a, pile_b);
 			else
 				ra(pile_a, 1);
-			len_a--;
 		}
-		len_b = ft_lstsize(*pile_b);
-		while (len_b)
+		while (*pile_b)
 		{
+			printf("test4\n");
 			pa(pile_a, pile_b);
-			len_b--;
 		}
 	}
 }
 
-t_pile	*find_lower(t_pile *pile_a, t_pile *temp)
+void	indexing(t_pile **pile_a)
 {
-	t_pile	*min;
+	t_pile	*temp;
+	t_pile	*temp_max;
 	int		i;
+	int		max;
 
-	min = pile_a;
-	i = 0;
-	while (ft_lstsize(pile_a) > i)
+	i = ft_lstsize(*pile_a);
+	while (i >= 1)
 	{
-		if (pile_a->data < min->data && pile_a->data > temp->data)
-			min = pile_a;
-		pile_a = pile_a->next;
-		i++;
+		max = -2147483648;
+		temp = *pile_a;
+		ft_printf("print i: %d\n", i);
+		while (temp)
+		{
+			if (temp->data > max && temp->index == 0)
+			{
+				max = temp->data;
+				temp_max = temp;
+			}
+			temp = temp->next;
+		}
+		temp_max->index = i;
+		ft_printf("temp_max: %d\n", temp_max->index);
+		ft_printf("temp_max val: %d\n", temp_max->data);
+		ft_printf("max: %d\n", max);
+		i--;
 	}
-	return (min);
 }
 
-void	positive_datas(t_pile **pile_a)
+void	lst_print(t_pile **pile)
 {
-	int		i;
 	t_pile	*temp;
 
-	temp = *pile_a;
-	i = 1;
-	temp->data = -2147483648;
-	while (ft_lstsize(*pile_a) > i)
+	temp = (*pile);
+	ft_printf("[");
+	while (temp->next)
 	{
-		temp = find_lower((*pile_a), temp);
-		temp->index = i;
-		i++;
+		ft_printf("%d, ", temp->data);
+		temp = temp->next;
 	}
+	ft_printf("%d", temp->data);
+	ft_printf("]\n");
 }
+
 int	main(void)
 {
 	t_pile	*pile_a;
@@ -87,8 +101,8 @@ int	main(void)
 	ft_lstadd_back(&pile_a, ft_lstnew(8));
 	ft_lstadd_back(&pile_a, ft_lstnew(23));
 	ft_lstadd_back(&pile_a, ft_lstnew(34));
-	printf("Pile A avant tri :\n");
 	temp = pile_a;
+	printf("Pile A avant tri :\n");
 	while (temp)
 	{
 		printf("%d ", temp->data);
@@ -96,8 +110,17 @@ int	main(void)
 	}
 	printf("\n");
 	// Transformer les valeurs en index positifs
-	positive_datas(&pile_a);
+	// positive_datas(&pile_a);
 	// Trier les piles
+	temp = pile_a;
+	// while (temp)
+	// {
+	// 	printf("%d ", temp->index);
+	// 	temp = temp->next;
+	// }
+	temp = pile_a;
+	indexing(&pile_a);
+	lst_print(&pile_a);
 	sort(&pile_a, &pile_b);
 	printf("Pile A après tri :\n");
 	temp = pile_a;

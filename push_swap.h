@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:06:00 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/02/11 22:34:30 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/12 04:16:09 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,13 @@ char	**ft_split(char const *s, char c);
 char	**free_all(char **result);
 void	ft_lstadd_back(t_pile **lst, t_pile *new);
 void	ft_lstadd_front(t_pile **lst, t_pile *new);
-void	ft_lstclear(t_pile **lst, void (*del)(void *));
-void	ft_lstdelone(t_pile *lst, void (*del)(void *));
+// void	ft_lstclear(t_pile **lst, void (*del)(void *));
+// void	ft_lstdelone(t_pile *lst, void (*del)(void *));
 t_pile	*ft_lstlast(t_pile *lst);
 int	ft_lstsize(t_pile *lst);
 t_pile	*ft_lstnew(int content);
+
+void	indexing(t_pile **pile_a);
+void	sort(t_pile **pile_a, t_pile **pile_b);
 
 #endif
