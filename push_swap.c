@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:25:23 by abosc             #+#    #+#             */
-/*   Updated: 2025/02/12 23:29:15 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/13 04:18:27 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 void	sort(t_pile **pile_a, t_pile **pile_b)
 {
 	int	i;
+	int	j;
 	int	len_a;
 	int	len_b;
 
 	i = -1;
+	j = 0;
 	len_a = 0;
 	len_b = 0;
 	while (++i < (int)(sizeof(int) * 8))
@@ -27,18 +29,26 @@ void	sort(t_pile **pile_a, t_pile **pile_b)
 		while (len_a)
 		{
 			if (!((((*pile_a)->index) >> i) & 1))
+			{
 				pb(pile_a, pile_b);
+				j++;
+			}
 			else
+			{
 				ra(pile_a);
+				j++;
+			}
 			len_a--;
 		}
 		len_b = ft_lstsize(*pile_b);
 		while (len_b)
 		{
 			pa(pile_a, pile_b);
+			j++;
 			len_b--;
 		}
 	}
+	ft_printf("Operations: %d\n", j);
 }
 // RA PB RA RA PB
 
@@ -97,49 +107,14 @@ void	lst_print_index(t_pile **pile)
 	ft_printf("]\n");
 }
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	t_pile	*pile_a;
-	t_pile	*pile_b;
-	t_pile	*temp;
+	t_pile	**pile_a;
+	t_pile	**pile_b;
 
-	pile_a = NULL;
+	pile_a = parsing(ac, av);
 	pile_b = NULL;
-	// Ajout des valeurs à pile_a
-	ft_lstadd_back(&pile_a, ft_lstnew(42));
-	ft_lstadd_back(&pile_a, ft_lstnew(17));
-	ft_lstadd_back(&pile_a, ft_lstnew(8));
-	ft_lstadd_back(&pile_a, ft_lstnew(23));
-	ft_lstadd_back(&pile_a, ft_lstnew(34));
-	temp = pile_a;
-	printf("Pile A avant tri :\n");
-	while (temp)
-	{
-		printf("%d ", temp->data);
-		temp = temp->next;
-	}
-	printf("\n");
-	// Transformer les valeurs en index positifs
-	// positive_datas(&pile_a);
-	// Trier les piles
-	temp = pile_a;
-	// while (temp)
-	// {
-	// 	printf("%d ", temp->index);
-	// 	temp = temp->next;
-	// }
-	temp = pile_a;
-	indexing(&pile_a);
-	lst_print(&pile_a);
-	lst_print_index(&pile_a);
-	sort(&pile_a, &pile_b);
-	printf("Pile A après tri :\n");
-	temp = pile_a;
-	while (temp)
-	{
-		printf("%d ", temp->data);
-		temp = temp->next;
-	}
-	printf("\n");
+	indexing(pile_a);
+	sort(pile_a, pile_b);
 	return (0);
 }

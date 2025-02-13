@@ -26,6 +26,7 @@
 		"push_swap.h": "c",
 		"stdint.h": "c",
 		"unistd.h": "c",
-		"stdarg.h": "c"
+		"stdarg.h": "c",
+		"ranges": "c"
 	}
 }

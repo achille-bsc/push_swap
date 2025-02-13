@@ -13,6 +13,8 @@ SRC =	push_swap.c\
 		libft/ft_atoi.c\
 		libft/ft_isdigit.c\
         libft/lstnew.c\
+		libft/ft_split.c\
+		libft/ft_lstclear.c\
 		printf/ft_fonction.c\
         printf/ft_fonctions.c\
         printf/ft_printf.c\
@@ -20,7 +22,10 @@ SRC =	push_swap.c\
         utils/push_swap_utils_reverse_rotate.c\
         utils/push_swap_utils_rotate.c\
         utils/push_swap_utils_swap.c\
-		utils/ft_can_be_int.c
+		utils/ft_can_be_int.c\
+		utils/errors.c\
+		parsing.c\
+
 
 OBJ =	${SRC:.c=.o}
 
