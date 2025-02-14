@@ -27,6 +27,7 @@
 		"stdint.h": "c",
 		"unistd.h": "c",
 		"stdarg.h": "c",
-		"ranges": "c"
+		"ranges": "c",
+		"variant": "c"
 	}
 }

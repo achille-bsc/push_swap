@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 00:14:53 by abosc             #+#    #+#             */
-/*   Updated: 2025/02/13 04:23:59 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/14 02:00:10 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,37 +20,44 @@ t_pile	**parsing(int argc, char **argv)
 
 	i = 0;
 	pile_a = NULL;
+	write(1, "Non\n", 4);
 	if (argc == 2)
 	{
+		write(1, "chut\n", 5);
 		values = ft_split(argv[1], ' ');
 		while (values[i])
 		{
+			write(1, "ok\n", 3);
 			if (!ft_can_be_int(values[i]))
 			{
+				write(1, "int\n", 4);
 				ft_lstclear(pile_a);
 				print_errors();
 			}
 			ft_lstadd_back(pile_a, ft_lstnew(ft_atoi(values[i])));
+			write(1, "fin\n", 4);
 			i++;
 		}
 	}
 	else if (argc > 2)
 		multiple_args(pile_a, argv);
 	else
-		print_errors();
+		exit(0);
 	return (pile_a);
 }
 
 void	multiple_args(t_pile **pile_a, char **argv)
 {
 	int	i;
-	
+
 	i = 1;
+	write(1, "evidemment\n", 11);
 	while (argv[i])
 	{
 		if (!ft_can_be_int(argv[i]))
 			print_errors();
 		ft_lstadd_back(pile_a, ft_lstnew(ft_atoi(argv[i])));
+		write(1, "ca fonctionne\n", 14);
 		i++;
 	}
 }

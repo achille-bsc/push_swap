@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:06:00 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/02/13 04:24:05 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/14 03:27:58 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,9 @@ void				ft_lstclear(t_pile **lst);
 // void				ft_lstdelone(t_pile *lst, void (*del)(void *));
 t_pile				*ft_lstlast(t_pile *lst);
 int					ft_lstsize(t_pile *lst);
-t_pile				*ft_lstnew(int content);
+t_pile				*ft_lstnew(int data);
+
+int					is_sorted(t_pile **pile_a);
 
 // Main code
 void				indexing(t_pile **pile_a);
