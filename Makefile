@@ -24,7 +24,9 @@ SRC =	push_swap.c\
         utils/push_swap_utils_swap.c\
 		utils/ft_can_be_int.c\
 		utils/errors.c\
-		parsing.c\
+		utils/lst_get_min.c\
+		utils/hard_force_sort.c\
+		parsing.c
 
 
 OBJ =	${SRC:.c=.o}
