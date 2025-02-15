@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-int	ft_can_be_int(const char *nptr)
+int	ft_can_be_int(const char *nb_ptr)
 {
 	int			i;
 	long long	result;
@@ -21,19 +21,19 @@ int	ft_can_be_int(const char *nptr)
 	result = 0;
 	i = 0;
 	sign = 1;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
+	while ((nb_ptr[i] >= 9 && nb_ptr[i] <= 13) || nb_ptr[i] == 32)
 		i++;
-	if (nptr[i] == 45 || nptr[i] == 43)
+	if (nb_ptr[i] == 45 || nb_ptr[i] == 43)
 	{
-		if (nptr[i] == 45)
+		if (nb_ptr[i] == 45)
 			sign = -1;
 		i++;
 	}
-	while (nptr[i])
+	while (nb_ptr[i])
 	{
-		if (ft_isdigit(nptr[i]) == 0)
+		if (ft_isdigit(nb_ptr[i]) == 0)
 			return (0);
-		result = result * 10 + nptr[i++] - 48;
+		result = result * 10 + nb_ptr[i++] - 48;
 	}
 	result *= sign;
 	if (result < -2147483648 || result > 2147483647)
