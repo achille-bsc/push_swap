@@ -6,55 +6,61 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 23:45:48 by abosc             #+#    #+#             */
-/*   Updated: 2025/02/16 01:30:58 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/16 06:55:27 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	three_sort(t_pile *pile_a)
+void	two_sort(t_pile *pile)
 {
-	if (pile_a->index > pile_a->next->index)
-	{
-		if (pile_a->next->index > pile_a->next->next->index)
-		{
-			if (pile_a->index > pile_a->next->next->index)
-			{
-				ra(&pile_a);
-				sa(&pile_a);
-			}
-			else
-				rra(&pile_a);
-		}
-		else
-		{
-			if (pile_a->index > pile_a->next->next->index)
-				ra(&pile_a);
-			else
-				sa(&pile_a);
-		}
-	}
-	else
-		three_sort2(pile_a);
+	if (pile->index > pile->next->index)
+		sa(&pile);
 }
 
-void	three_sort2(t_pile *pile_a)
+void	three_sort(t_pile *pile)
 {
-	if (pile_a->next->index > pile_a->next->next->index)
+	if (pile->index > pile->next->index)
 	{
-		if (pile_a->index > pile_a->next->next->index)
-			rra(&pile_a);
+		if (pile->next->index > pile->next->next->index)
+		{
+			if (pile->index > pile->next->next->index)
+			{
+				ra(&pile);
+				sa(&pile);
+			}
+			else
+				rra(&pile);
+		}
+		else
+		{	
+			if (pile->index > pile->next->next->index)
+				ra(&pile);
+			else
+				sa(&pile);
+		}
+	}
+	else
+		three_sort2(pile);
+}
+
+void	three_sort2(t_pile *pile)
+{
+	if (pile->next->index > pile->next->next->index)
+	{
+		if (pile->index > pile->next->next->index)
+			rra(&pile);
 		else
 		{
-			ra(&pile_a);
-			sa(&pile_a);
-			rra(&pile_a);
+			ra(&pile);
+			sa(&pile);
+			rra(&pile);
 		}
 	}
 	else
 	{
-		if (pile_a->index > pile_a->next->next->index)
-			sa(&pile_a);
+		if (pile->index > pile->next->next->index)
+			sa(&pile);
 	}
 }
 void	four_sort(t_pile *pile_a, t_pile *pile_b)

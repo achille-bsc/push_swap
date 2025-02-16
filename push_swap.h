@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:06:00 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/02/16 01:46:07 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/16 06:56:08 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void				rb(t_pile **pile_b);
 void				rr(t_pile **pile_a, t_pile **pile_b);
 void				ss(t_pile **pile_a, t_pile **pile_b);
 void				ss(t_pile **pile_a, t_pile **pile_b);
-void				print_errors(void);
 
 // Printf
 int					ft_printf(const char *format, ...);
@@ -77,11 +76,15 @@ void				sort(t_pile **pile_a, t_pile **pile_b);
 int					ft_can_be_int(const char *nb_ptr);
 void				three_sort2(t_pile *pile_a);
 void				four_sort(t_pile *pile_a, t_pile *pile_b);
-void				five_sort(t_pile *pile_a, t_pile *pile_b);
-t_pile				*parsing(int argc, char **argv);
-void				multiple_args(t_pile **pile_a, char **argv);
-
-void				four_sort(t_pile *pile_a, t_pile *pile_b);
+void				two_sort(t_pile *pile);
 void				three_sort(t_pile *pile_a);
+void				four_sort(t_pile *pile_a, t_pile *pile_b);
+void				five_sort(t_pile *pile_a, t_pile *pile_b);
+
+// Parsing
+void				parsing(int argc, char **argv, t_pile **pile_a, int i);
+void				verif_doubles(t_pile **pile_a);
+void				print_errors(void);
+
 
 #endif

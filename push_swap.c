@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:25:23 by abosc             #+#    #+#             */
-/*   Updated: 2025/02/16 02:01:48 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/16 06:57:52 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	sort(t_pile **pile_a, t_pile **pile_b)
 		len_a = ft_lstsize(*pile_a);
 		while (len_a)
 		{
+			if (is_sorted(pile_a) && is_sorted_rev(pile_b))
+				break ;
 			if (!((((*pile_a)->index) >> i) & 1))
 				pb(pile_a, pile_b);
 			else
@@ -54,6 +56,22 @@ int	is_sorted(t_pile **pile_a)
 	while (temp)
 	{
 		if (previous > temp->index)
+			return (0);
+		previous = temp->index;
+		temp = temp->next;
+	}
+	return (1);
+}
+int	is_sorted_rev(t_pile **pile_a)
+{
+	unsigned int	previous;
+	t_pile			*temp;
+
+	temp = *pile_a;
+	previous = 10000;
+	while (temp)
+	{
+		if (previous < temp->index)
 			return (0);
 		previous = temp->index;
 		temp = temp->next;
@@ -89,29 +107,6 @@ void	indexing(t_pile **pile_a)
 	}
 }
 
-void	lst_print(t_pile **pile)
-{
-	t_pile	*temp;
-
-	temp = (*pile);
-	while (temp->next)
-		temp = temp->next;
-}
-void	lst_print_index(t_pile **pile)
-{
-	t_pile	*temp;
-
-	temp = (*pile);
-	// ft_printf("[");
-	while (temp->next)
-	{
-		// ft_printf("%d, ", temp->index);
-		temp = temp->next;
-	}
-	// ft_printf("%d", temp->index);
-	// ft_printf("]\n");
-}
-
 // int	main(int ac, char **av)
 // {
 // 	t_pile	**pile_a;
@@ -142,17 +137,23 @@ int	main(int argc, char **argv)
 	pile_a = NULL;
 	pile_b = NULL;
 	(void)argc;
+	if (argc == 2 || argc == 1)
+		return (0);
 	i = 0;
 	while (argv[++i] != NULL)
-		ft_lstadd_back(&pile_a, ft_lstnew(ft_atoi(argv[i])));
+		parsing(argc, argv, &pile_a, i);
+	verif_doubles(&pile_a);
 	temp = pile_a;
 	while (temp)
 		temp = temp->next;
 	temp = pile_a;
 	temp = pile_a;
 	indexing(&pile_a);
-	lst_print(&pile_a);
-	if (argc == 4)
+	if (is_sorted(&pile_a))
+		return (0);
+	if (argc == 3)
+		two_sort(pile_a);
+	else if (argc == 4)
 		three_sort(pile_a);
 	else if (argc == 5)
 		four_sort(pile_a, pile_b);
