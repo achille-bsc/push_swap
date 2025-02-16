@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:25:23 by abosc             #+#    #+#             */
-/*   Updated: 2025/02/16 06:57:52 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/16 10:11:44 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,19 +150,21 @@ int	main(int argc, char **argv)
 	temp = pile_a;
 	indexing(&pile_a);
 	if (is_sorted(&pile_a))
-		return (0);
+		return (ft_lstclear(&pile_a), 0);
 	if (argc == 3)
-		two_sort(pile_a);
+		sa(&pile_a); 
 	else if (argc == 4)
-		three_sort(pile_a);
+		tree_sort(&pile_a);
 	else if (argc == 5)
-		four_sort(pile_a, pile_b);
+		for_sort(&pile_a, &pile_b);
 	else if (argc == 6)
-		five_sort(pile_a, pile_b);
+		high_five_sort(&pile_a, &pile_b);
 	else
 		sort(&pile_a, &pile_b);
 	temp = pile_a;
 	while (temp)
 		temp = temp->next;
+	ft_lstclear(&pile_a);
+	// ft_lstclear(&pile_b);
 	return (0);
 }

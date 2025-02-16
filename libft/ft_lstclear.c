@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 19:31:44 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/02/13 04:23:16 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/16 10:33:21 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ void	ft_lstclear(t_pile **lst)
 		temp = (*lst)->next;
 		free(*lst);
 		*lst = temp;
-	} lst = NULL;
+	}
+	free(*lst);
+	lst = NULL;
 }
