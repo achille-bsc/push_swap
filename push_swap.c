@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:25:23 by abosc             #+#    #+#             */
-/*   Updated: 2025/02/16 00:46:16 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/16 02:01:48 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ void	sort(t_pile **pile_a, t_pile **pile_b)
 		len_b = ft_lstsize(*pile_b);
 		while (len_b)
 		{
-			pa(pile_a, pile_b);
+			if (!((((*pile_b)->index) >> (i + 1)) & 1) && !is_sorted(pile_a))
+				rb(pile_b);
+			else
+				pa(pile_a, pile_b);
 			len_b--;
 		}
 	}
@@ -91,14 +94,8 @@ void	lst_print(t_pile **pile)
 	t_pile	*temp;
 
 	temp = (*pile);
-	// ft_printf("[");
 	while (temp->next)
-	{
-		// ft_printf("%d, ", temp->data);
 		temp = temp->next;
-	}
-	// ft_printf("%d", temp->data);
-	// ft_printf("]\n");
 }
 void	lst_print_index(t_pile **pile)
 {
@@ -157,8 +154,10 @@ int	main(int argc, char **argv)
 	lst_print(&pile_a);
 	if (argc == 4)
 		three_sort(pile_a);
-	//  else if (argc == 5)
-	// four_sort(pile_a, pile_b);
+	else if (argc == 5)
+		four_sort(pile_a, pile_b);
+	else if (argc == 6)
+		five_sort(pile_a, pile_b);
 	else
 		sort(&pile_a, &pile_b);
 	temp = pile_a;

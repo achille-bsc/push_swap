@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:06:00 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/02/16 00:57:41 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/16 01:46:07 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ t_pile				*ft_lstlast(t_pile *lst);
 int					ft_lstsize(t_pile *lst);
 t_pile				*ft_lstnew(int data);
 int					is_sorted(t_pile **pile_a);
+int					is_sorted_rev(t_pile **pile_b);
 
 // Main code
 void				indexing(t_pile **pile_a);
@@ -76,7 +77,7 @@ void				sort(t_pile **pile_a, t_pile **pile_b);
 int					ft_can_be_int(const char *nb_ptr);
 void				three_sort2(t_pile *pile_a);
 void				four_sort(t_pile *pile_a, t_pile *pile_b);
-
+void				five_sort(t_pile *pile_a, t_pile *pile_b);
 t_pile				*parsing(int argc, char **argv);
 void				multiple_args(t_pile **pile_a, char **argv);
 

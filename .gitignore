@@ -1,2 +1,9 @@
-push_swap_*
+push_swap
 .idea
+*.o
+.vscode
+.idea
+*.png
+
+push_swap_tester/
+push_swap_visualizer/
