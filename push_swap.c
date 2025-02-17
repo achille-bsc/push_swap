@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:25:23 by abosc             #+#    #+#             */
-/*   Updated: 2025/02/16 10:11:44 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/17 18:02:04 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,9 +139,12 @@ int	main(int argc, char **argv)
 	(void)argc;
 	if (argc == 2 || argc == 1)
 		return (0);
-	i = 0;
-	while (argv[++i] != NULL)
-		parsing(argc, argv, &pile_a, i);
+	i = 1;
+	while (argv[i] != NULL)
+	{
+		parsing(argc, argv[i], &pile_a);
+		i++;
+	}
 	verif_doubles(&pile_a);
 	temp = pile_a;
 	while (temp)
