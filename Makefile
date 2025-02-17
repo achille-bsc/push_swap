@@ -1,4 +1,4 @@
-NAME = push_swapNAME = push_swap
+NAME = push_swap
 
 CC = cc
 
@@ -10,13 +10,6 @@ SRC =	push_swap.c\
         libft/ft_lstadd_front.c\
         libft/ft_lstlast.c\
         libft/ft_lstsize.c\
-		libft/ft_atoi.c\
-		libft/ft_isdigit.c\
-        libft/lstnew.c\
-		libft/ft_split.c\
-		libft/ft_lstclear.c\
-		printf/ft_fonction.c\
-        printf/ft_fonctions.c\
         printf/ft_printf.c\
 		libft/ft_atoi.c\
 		libft/ft_isdigit.c\
