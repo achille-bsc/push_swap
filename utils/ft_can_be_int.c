@@ -32,7 +32,11 @@ int	ft_can_be_int(const char *nb_ptr)
 	while (nb_ptr[i])
 	{
 		if (ft_isdigit(nb_ptr[i]) == 0)
+		{
+			if (ft_isdigit(nb_ptr[--i]) == 0)
+				return (1);
 			return (0);
+		}
 		result = result * 10 + nb_ptr[i++] - 48;
 	}
 	result *= sign;
