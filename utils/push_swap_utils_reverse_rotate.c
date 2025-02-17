@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils_reverse_rotate.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
+/*   By: ameduboi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/18 18:18:15 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/02/17 22:09:46 by ameduboi         ###   ########.fr       */
+/*   Created: 2025/02/17 22:23:13 by ameduboi          #+#    #+#             */
+/*   Updated: 2025/02/17 22:23:18 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
