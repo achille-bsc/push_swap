@@ -18,7 +18,8 @@ void	swap(t_pile **pile)
 
 	tmp = (*pile)->next;
 	(*pile)->next = tmp->next;
-	tmp = (*pile);
+	tmp->next = (*pile);
+	(*pile) = tmp; 
 }
 
 void	sa(t_pile **pile_a)
