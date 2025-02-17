@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 18:18:15 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/02/14 18:58:57 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/17 22:09:46 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,25 @@ void	reverse_rotate(t_pile **pile)
 	t_pile	*tmp;
 
 	tmp = *pile;
-	while(tmp->next->next)
+	while (tmp->next->next)
 		tmp = tmp->next;
 	tmp->next->next = *pile;
 	(*pile) = tmp->next;
 	tmp->next = NULL;
 }
+
 void	rra(t_pile **pile_a)
 {
 	reverse_rotate(pile_a);
 	ft_putstr("rra\n");
 }
+
 void	rrb(t_pile **pile_b)
 {
 	reverse_rotate(pile_b);
 	ft_putstr("rrb\n");
 }
+
 void	rrr(t_pile **pile_a, t_pile **pile_b)
 {
 	reverse_rotate(pile_a);

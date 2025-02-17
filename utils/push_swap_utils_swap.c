@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:29:40 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/02/12 22:37:22 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/17 22:12:10 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	swap(t_pile **pile)
 	tmp = (*pile)->next;
 	(*pile)->next = tmp->next;
 	tmp->next = (*pile);
-	(*pile) = tmp; 
+	(*pile) = tmp;
 }
 
 void	sa(t_pile **pile_a)

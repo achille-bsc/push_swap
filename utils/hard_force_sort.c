@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 23:45:48 by abosc             #+#    #+#             */
-/*   Updated: 2025/02/16 09:53:10 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/17 22:07:21 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	tree_sort(t_pile **pile)
 				rra(pile);
 		}
 		else
-		{	
+		{
 			if ((*pile)->index > (*pile)->next->next->index)
 				ra(pile);
 			else
@@ -55,6 +55,7 @@ void	tree_sort2(t_pile **pile)
 		if ((*pile)->index > (*pile)->next->next->index)
 			sa(pile);
 }
+
 void	for_sort(t_pile **pile_a, t_pile **pile_b)
 {
 	t_pile	*min;
@@ -80,6 +81,7 @@ void	for_sort(t_pile **pile_a, t_pile **pile_b)
 	tree_sort(pile_a);
 	pa(pile_a, pile_b);
 }
+
 void	high_five_sort(t_pile **pile_a, t_pile **pile_b)
 {
 	t_pile	*min;

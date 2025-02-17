@@ -6,25 +6,22 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:25:23 by abosc             #+#    #+#             */
-/*   Updated: 2025/02/17 18:48:52 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/17 22:01:20 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-void	sort(t_pile **pile_a, t_pile **pile_b)
+void	sort(t_pile **pile_a, t_pile **pile_b, int i)
 {
-	int	i;
-	int	len_a;
-	int	len_b;
+	int	len;
 
-	i = -1;
 	while (++i < (int)(sizeof(int) * 8))
 	{
 		if (is_sorted(pile_a) == 1)
 			break ;
-		len_a = ft_lstsize(*pile_a);
-		while (len_a)
+		len = ft_lstsize(*pile_a) + 1;
+		while (--len)
 		{
 			if (is_sorted(pile_a) && is_sorted_rev(pile_b))
 				break ;
@@ -32,16 +29,14 @@ void	sort(t_pile **pile_a, t_pile **pile_b)
 				pb(pile_a, pile_b);
 			else
 				ra(pile_a);
-			len_a--;
 		}
-		len_b = ft_lstsize(*pile_b);
-		while (len_b)
+		len = ft_lstsize(*pile_b) + 1;
+		while (--len)
 		{
 			if (!((((*pile_b)->index) >> (i + 1)) & 1) && !is_sorted(pile_a))
 				rb(pile_b);
 			else
 				pa(pile_a, pile_b);
-			len_b--;
 		}
 	}
 }
@@ -62,6 +57,7 @@ int	is_sorted(t_pile **pile_a)
 	}
 	return (1);
 }
+
 int	is_sorted_rev(t_pile **pile_a)
 {
 	unsigned int	previous;
@@ -78,7 +74,6 @@ int	is_sorted_rev(t_pile **pile_a)
 	}
 	return (1);
 }
-// RA PB RA RA PB
 
 void	indexing(t_pile **pile_a)
 {
@@ -105,69 +100,4 @@ void	indexing(t_pile **pile_a)
 		temp_max->index = i;
 		i--;
 	}
-}
-
-// int	main(int ac, char **av)
-// {
-// 	t_pile	**pile_a;
-// 	t_pile	**pile_b;
-
-// //	pile_a = parsing(ac, av);
-// 	pile_a = ft_lstnew(42);
-// 	ft_lstadd_back(pile_a, ft_lstnew(-42));
-// 	ft_lstadd_back(pile_a, ft_lstnew(21));
-// 	ft_lstadd_back(pile_a, ft_lstnew(-21));
-// 	ft_lstadd_back(pile_a, ft_lstnew(24));
-// 	ft_lstadd_back(pile_a, ft_lstnew(-24));
-// 	ft_lstadd_back(pile_a, ft_lstnew(12));
-// 	ft_lstadd_back(pile_a, ft_lstnew(-12));
-// 	pile_b = NULL;
-// 	indexing(pile_a);
-// 	sort(pile_a, pile_b);
-// 	return (0);
-// }
-
-int	main(int argc, char **argv)
-{
-	t_pile	*pile_a;
-	t_pile	*pile_b;
-	t_pile	*temp;
-	int		i;
-
-	pile_a = NULL;
-	pile_b = NULL;
-	(void)argc;
-	i = 1;
-	while (argv[i] != NULL)
-	{
-		parsing(argv[i], &pile_a);
-		i++;
-	}
-	if (argc == 2 || argc == 1)
-		return (free(pile_a), 0);
-	verif_doubles(&pile_a);
-	temp = pile_a;
-	while (temp)
-		temp = temp->next;
-	temp = pile_a;
-	temp = pile_a;
-	indexing(&pile_a);
-	if (is_sorted(&pile_a))
-		return (ft_lstclear(&pile_a), 0);
-	if (argc == 3)
-		sa(&pile_a);
-	else if (argc == 4)
-		tree_sort(&pile_a);
-	else if (argc == 5)
-		for_sort(&pile_a, &pile_b);
-	else if (argc == 6)
-		high_five_sort(&pile_a, &pile_b);
-	else
-		sort(&pile_a, &pile_b);
-	temp = pile_a;
-	while (temp)
-		temp = temp->next;
-	ft_lstclear(&pile_a);
-	// ft_lstclear(&pile_b);
-	return (0);
 }

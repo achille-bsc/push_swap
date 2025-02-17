@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 21:05:47 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/02/17 18:47:13 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/17 22:04:57 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,5 @@ int	ft_can_be_int(const char *nb_ptr)
 		result = result * 10 + nb_ptr[i++] - 48;
 	}
 	result *= sign;
-	if (result < -2147483648 || result > 2147483647)
-		return (0);
-	return (1);
+	return (!(result < -2147483648 || result > 2147483647));
 }
-/*
-int	main(void)
-{
-	printf("%d",ft_can_be_int("       -123456"));
-}
-*/

@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 19:20:02 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/02/14 02:17:28 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/17 22:02:50 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,3 @@ void	ft_lstadd_back(t_pile **lst, t_pile *new)
 		lst = &(*lst)->next;
 	*lst = new;
 }
-

@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 20:25:04 by abosc             #+#    #+#             */
-/*   Updated: 2025/02/14 21:36:57 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/17 22:08:32 by ameduboi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_pile	*lst_get_min(t_pile *pile_a)
 {
 	t_pile	*temp;
 	t_pile	*min;
-	
+
 	temp = pile_a;
 	min = temp;
 	while (temp)
