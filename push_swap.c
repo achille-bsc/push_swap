@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:25:23 by abosc             #+#    #+#             */
-/*   Updated: 2025/02/17 18:02:04 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/17 18:48:52 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,14 +137,14 @@ int	main(int argc, char **argv)
 	pile_a = NULL;
 	pile_b = NULL;
 	(void)argc;
-	if (argc == 2 || argc == 1)
-		return (0);
 	i = 1;
 	while (argv[i] != NULL)
 	{
-		parsing(argc, argv[i], &pile_a);
+		parsing(argv[i], &pile_a);
 		i++;
 	}
+	if (argc == 2 || argc == 1)
+		return (free(pile_a), 0);
 	verif_doubles(&pile_a);
 	temp = pile_a;
 	while (temp)
@@ -155,7 +155,7 @@ int	main(int argc, char **argv)
 	if (is_sorted(&pile_a))
 		return (ft_lstclear(&pile_a), 0);
 	if (argc == 3)
-		sa(&pile_a); 
+		sa(&pile_a);
 	else if (argc == 4)
 		tree_sort(&pile_a);
 	else if (argc == 5)

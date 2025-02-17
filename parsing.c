@@ -5,26 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 00:14:53 by abosc             #+#    #+#             */
-/*   Updated: 2025/02/17 18:01:56 by abosc            ###   ########.fr       */
+/*   Created: 2025/02/13 00:14:53 by absoc             #+#    #+#             */
+/*   Updated: 2025/02/17 18:49:09 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-void	parsing(int argc, char *arg, t_pile **pile_a)
+void	parsing(char *arg, t_pile **pile_a)
 {
-	(void)argc;
-	ft_printf("arg = %s\n", arg);
-	if (argc < 2 || !arg || ft_can_be_int(arg) == 0)
+	if (!arg || ft_can_be_int(arg) == 0)
 		print_errors(pile_a);
 	ft_lstadd_back(pile_a, ft_lstnew(ft_atoi(arg)));
 }
 
 void	verif_doubles(t_pile **pile_a)
 {
-	t_pile *temp1;
-	t_pile *temp2;
+	t_pile	*temp1;
+	t_pile	*temp2;
 
 	temp1 = (*pile_a);
 	temp2 = (*pile_a)->next;
@@ -40,10 +38,11 @@ void	verif_doubles(t_pile **pile_a)
 		temp2 = temp1->next;
 	}
 }
+
 void	print_errors(t_pile **pile_a)
 {
 	ft_lstadd_back(pile_a, ft_lstnew(0));
 	ft_lstclear(pile_a);
 	write(2, "Error\n", 6);
-	exit (1);
+	exit(1);
 }

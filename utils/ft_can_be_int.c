@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 21:05:47 by ameduboi          #+#    #+#             */
-/*   Updated: 2025/02/16 06:23:14 by abosc            ###   ########.fr       */
+/*   Updated: 2025/02/17 18:47:13 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,14 @@ int	ft_can_be_int(const char *nb_ptr)
 	{
 		if (nb_ptr[i] == 45)
 			sign = -1;
+		if (nb_ptr[i + 1] == '\0')
+			return (0);
 		i++;
 	}
 	while (nb_ptr[i])
 	{
 		if (ft_isdigit(nb_ptr[i]) == 0)
-		{
-			if (ft_isdigit(nb_ptr[--i]) == 0)
-				return (1);
 			return (0);
-		}
 		result = result * 10 + nb_ptr[i++] - 48;
 	}
 	result *= sign;
