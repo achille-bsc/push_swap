@@ -18,7 +18,6 @@ SRC =	push_swap.c\
 		libft/ft_lstclear.c\
 		printf/ft_fonction.c\
         printf/ft_fonctions.c\
-        printf/ft_printf.c\
 		utils/push_swap_utils_push.c\
         utils/push_swap_utils_reverse_rotate.c\
         utils/push_swap_utils_rotate.c\
