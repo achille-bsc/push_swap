@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:25:23 by abosc             #+#    #+#             */
-/*   Updated: 2025/02/17 22:01:20 by ameduboi         ###   ########.fr       */
+/*   Updated: 2025/02/19 00:56:42 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 void	sort(t_pile **pile_a, t_pile **pile_b, int i)
 {
 	int	len;
+	int	pile_a_len;
 
+	pile_a_len = ft_lstsize(*pile_a);
 	while (++i < (int)(sizeof(int) * 8))
 	{
 		if (is_sorted(pile_a) == 1)
@@ -33,7 +35,7 @@ void	sort(t_pile **pile_a, t_pile **pile_b, int i)
 		len = ft_lstsize(*pile_b) + 1;
 		while (--len)
 		{
-			if (!((((*pile_b)->index) >> (i + 1)) & 1) && !is_sorted(pile_a))
+			if (pile_a_len >= 100 && (!((((*pile_b)->index) >> (i + 1)) & 1) && !is_sorted(pile_a)))
 				rb(pile_b);
 			else
 				pa(pile_a, pile_b);
