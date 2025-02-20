@@ -67,7 +67,7 @@ ARG=4 67 3 87 23; ./push_swap $ARG | ./checker $ARG
 | **Optimisation** | 🔹 Minimisation des opérations via rotations stratégiques et regroupement |
 
 ## 📚 Ressources Utiles
-- 📄 [Sujet officiel du projet](https://github.com/QwarkZ/42-subjects/blob/main/Push_Swap.pdf)
+- 📄 [Sujet officiel du projet](https://cdn.intra.42.fr/pdf/pdf/142800/fr.subject.pdf)
 - 📘 [Explication mathématique et algorithmique détaillée de l'algorithme Radix Sort (En anglais)](https://en.wikipedia.org/wiki/Radix_sort)
 
 ## ✍️ Auteur
