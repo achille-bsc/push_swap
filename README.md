@@ -68,7 +68,7 @@ ARG=4 67 3 87 23; ./push_swap $ARG | ./checker $ARG
 
 ## 📚 Ressources Utiles
 - 📄 [Sujet officiel du projet](https://github.com/QwarkZ/42-subjects/blob/main/Push_Swap.pdf)
-- 📘 [Explication mathématique et algorithmique détaillée de Push Swap](https://stackoverflow.com/questions/60021300/understanding-the-push-swap-algorithm-in-depth)
+- 📘 [Explication mathématique et algorithmique détaillée de l'algorithme Radix Sort (En anglais)](https://en.wikipedia.org/wiki/Radix_sort)
 
 ## ✍️ Auteur
 Projet réalisé dans le cadre de l'école 42 par **Achille BOSC**, en collaboration avec **Amélie DUBOIS**.
